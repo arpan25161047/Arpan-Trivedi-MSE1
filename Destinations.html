@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Destinations – TravelMate</title>
+  <link rel="stylesheet" href="./styles.css?v=2" />
+</head>
+<body>
+  <header class="site-header">
+  <a class="brand" href="./index.html">✈️ TravelMate</a>
+  <nav class="site-nav">
+    <a class="nav-link" href="./index.html">Home</a>
+    <a class="nav-link active" aria-current="page" href="./destinations.html">Destinations</a>
+    <a class="nav-link" href="./Why us.html">Why Us</a>
+    <a class="nav-link btn-ghost" href="./booking.html">Booking</a>
+  </nav>
+  <a class="btn" href="./booking.html">Plan a trip</a>
+</header>
+
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-title">Explore Destinations</h1>
+        <p class="page-subtitle">Handpicked places our travelers love.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid cols-3">
+          <!-- Card 1 -->
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop" alt="Bali, Indonesia">
+            <div class="card-body">
+              <h3 class="card-title">Bali, Indonesia</h3>
+              <p class="card-text">Temple sunsets, rice paddies, and ocean coves in one island escape.</p>
+              <a class="btn" href="./booking.html?dest=Bali%2C%20Indonesia">Book now</a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?q=80&w=1600&auto=format&fit=crop" alt="Paris, France">
+            <div class="card-body">
+              <h3 class="card-title">Paris, France</h3>
+              <p class="card-text">Cafés, couture, and the City of Light—wander along the Seine.</p>
+              <a class="btn" href="./booking.html?dest=Paris%2C%20France">Book now</a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1580502304784-8985b7eb7260?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2FudG9yaW5pfGVufDB8fDB8fHww" alt="Santorini, Greece">
+            <div class="card-body">
+              <h3 class="card-title">Santorini, Greece</h3>
+              <p class="card-text">Whitewashed villages and legendary sunsets over the Aegean.</p>
+              <a class="btn" href="./booking.html?dest=Santorini%2C%20Greece">Book now</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">© <span id="year"></span> TravelMate. All rights reserved.</footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

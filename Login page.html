@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login · TravelMate</title>
+  <link rel="stylesheet" href="./styles.css?v=4" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <a class="brand" href="./index.html">✈️ TravelMate</a>
+    <nav class="site-nav">
+      <a class="nav-link" href="./index.html">Home</a>
+      <a class="nav-link" href="./destinations.html">Destinations</a>
+      <a class="nav-link" href="./why-us.html">Why Us</a>
+      <a class="nav-link btn-ghost" href="./booking.html">Booking</a>
+      <a class="nav-link active" aria-current="page" href="./login.html">Login</a>
+    </nav>
+    <a class="btn" href="./booking.html">Plan a trip</a>
+  </header>
+
+  <main>
+    <!-- Page hero (breadcrumbs vibe) -->
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-title">Sign in to TravelMate</h1>
+        <p class="page-subtitle">Access your saved trips and inquiries.</p>
+      </div>
+    </section>
+
+    <!-- Auth split layout -->
+    <section class="section">
+      <div class="container">
+        <div class="auth-layout card">
+          <!-- Visual / marketing side (hidden on small screens) -->
+          <aside class="auth-side" aria-hidden="true">
+            <div class="auth-overlay">
+              <h3>Travel smarter.</h3>
+              <p>Handpicked destinations, transparent pricing, real people.</p>
+            </div>
+          </aside>
+
+          <!-- Form side -->
+          <div class="auth-pane padded">
+            <div class="auth-head">
+              <div class="logo-pill">✈️</div>
+              <div>
+                <h2 class="auth-title">Welcome back</h2>
+                <p class="auth-sub">Use your email to continue</p>
+              </div>
+            </div>
+
+            <form id="loginForm" class="form" novalidate>
+              <div class="input-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" class="input" placeholder="you@example.com"
+                       autocomplete="email" required />
+                <small class="field-hint">We’ll never share your email.</small>
+              </div>
+
+              <div class="input-group">
+                <label for="password">Password</label>
+                <div class="password-row">
+                  <input id="password" type="password" class="input" placeholder="••••••••"
+                         autocomplete="current-password" minlength="6" required />
+                  <button class="btn-eye" type="button" aria-label="Show password" title="Show password">👁️</button>
+                </div>
+                <div class="auth-row">
+                  <label class="check">
+                    <input type="checkbox" id="remember" /> <span>Remember me</span>
+                  </label>
+                  <a class="link-muted" href="#" id="forgot">Forgot password?</a>
+                </div>
+              </div>
+
+              <button type="submit" class="btn submit">Sign in</button>
+              <p id="loginMsg" class="hint" style="display:none;">Logged in successfully (demo).</p>
+
+              <div class="divider"><span>or</span></div>
+              <button type="button" class="btn btn-ghost-full" id="signinGoogle">
+                Continue with Google
+              </button>
+
+              <p class="tos">
+                By continuing, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+              </p>
+            </form>
+
+            <div class="help-links">
+              <span>New to TravelMate?</span>
+              <a href="./booking.html">Create an inquiry</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">© <span id="year"></span> TravelMate. All rights reserved.</footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Password visibility
+    const eye = document.querySelector('.btn-eye');
+    const pwd = document.getElementById('password');
+    eye.addEventListener('click', () => {
+      const isPwd = pwd.type === 'password';
+      pwd.type = isPwd ? 'text' : 'password';
+      eye.textContent = isPwd ? '🙈' : '👁️';
+      eye.setAttribute('aria-label', isPwd ? 'Hide password' : 'Show password');
+      eye.title = isPwd ? 'Hide password' : 'Show password';
+    });
+
+    // Demo login handler (front-end only)
+    const msg = document.getElementById('loginMsg');
+    document.getElementById('loginForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const pass = document.getElementById('password').value.trim();
+
+      if(!email || !pass){
+        msg.textContent = 'Please enter your email and password.';
+        msg.style.color = '#dc2626'; msg.style.display = 'block';
+        return;
+      }
+      if(pass.length < 6){
+        msg.textContent = 'Password must be at least 6 characters.';
+        msg.style.color = '#dc2626'; msg.style.display = 'block';
+        return;
+      }
+      msg.textContent = 'Logged in successfully (demo).';
+      msg.style.color = '#16a34a'; msg.style.display = 'block';
+      this.reset();
+    });
+
+    // Demo “forgot password”
+    document.getElementById('forgot').addEventListener('click', function(e){
+      e.preventDefault();
+      alert('Demo site: no reset backend connected.');
+    });
+
+    // Demo Google sign-in button
+    document.getElementById('signinGoogle').addEventListener('click', () => {
+      alert('Demo site: Google Sign-In not wired. (Front-end only)');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Booking – TravelMate</title>
+  <link rel="stylesheet" href="./styles.css?v=2" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">✈️ TravelMate</a>
+    <nav class="site-nav">
+      <a class="nav-link" href="./index.html">Home</a>
+      <a class="nav-link" href="./destinations.html">Destinations</a>
+      <!-- fixed filename -->
+      <a class="nav-link" href="./Why us.html">Why Us</a>
+      <a class="nav-link active btn-ghost" aria-current="page" href="./booking.html">Booking</a>
+    </nav>
+    <a class="btn" href="./booking.html">Plan a trip</a>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-title">Plan your trip</h1>
+        <p class="page-subtitle">Send an inquiry and our team will craft a personalized itinerary.</p>
+      </div>
+    </section>
+
+    <!-- Booking form -->
+    <section class="section">
+      <div class="container">
+        <form id="inquiryForm" class="form">
+          <label for="name">Full name</label>
+          <input id="name" type="text" class="input" placeholder="Your Name">
+
+          <label for="email">Email</label>
+          <input id="email" type="email" class="input" placeholder="you@example.com">
+
+          <label for="dest">Destination</label>
+          <input id="dest" type="text" class="input" placeholder="e.g., Paris, France">
+
+          <div class="row cols-2">
+            <div>
+              <label for="start">Start date</label>
+              <input id="start" type="date" class="input">
+            </div>
+            <div>
+              <label for="end">End date</label>
+              <input id="end" type="date" class="input">
+            </div>
+          </div>
+
+          <a class="btn submit"
+   href="https://docs.google.com/forms/d/e/1FAIpQLSfcwkbqiRBwfnUXSbffnTynq83405ZsI0pufMG2jj6IahAtkQ/viewform?usp=dialog"
+   target="_blank">
+   Submit Inquiry
+</a>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- Contact Details -->
+    <section class="section section-contrast">
+      <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="grid cols-3">
+          <div class="card padded">
+            <h3 class="card-title">📍 Office Address</h3>
+            <p class="card-text">
+              TravelMate Pvt. Ltd.<br>
+              Ghaziabad, India
+            </p>
+          </div>
+
+          <div class="card padded">
+            <h3 class="card-title">📞 Phone</h3>
+            <p class="card-text">
+              <a href="tel:+91 9557249541">+91 95572 49541</a><br>
+              Mon–Sat, 9:00 AM – 7:00 PM IST
+            </p>
+          </div>
+
+          <div class="card padded">
+            <h3 class="card-title">✉️ Email</h3>
+            <p class="card-text">
+              <a href="mailto:support@travelmate.com">support@travelmate.com</a><br>
+              <a href="mailto:inquiries@travelmate.com">inquiries@travelmate.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">© <span id="year"></span> TravelMate. All rights reserved.</footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Pre-fill destination from query string
+    const params = new URLSearchParams(location.search);
+    const destParam = params.get('dest');
+    if (destParam) { document.getElementById('dest').value = decodeURIComponent(destParam); }
+
+    // Form handler
+    const msg = document.getElementById('formMsg');
+    msg.style.display = 'none';
+    document.getElementById('inquiryForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const dest = document.getElementById('dest').value.trim();
+      const start = document.getElementById('start').value.trim();
+      const end = document.getElementById('end').value.trim();
+      if (!name || !email || !dest || !start || !end) {
+        msg.textContent = 'Please fill all fields to submit your inquiry.';
+        msg.style.color = '#dc2626';
+        msg.style.display = 'block';
+        return;
+      }
+      msg.textContent = 'Thanks! Your inquiry has been received. We will reach out soon.';
+      msg.style.color = '#16a34a';
+      msg.style.display = 'block';
+      this.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TravelMate – Find your next unforgettable escape</title>
+  <link rel="stylesheet" href="styles.css" />
+  
+</head>
+<body>
+  <header class="site-header">
+  <a class="brand" href="./index.html">✈️ TravelMate</a>
+  <nav class="site-nav">
+    <a class="nav-link btn-ghost" href="./Login page.html">Login</a>
+    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+    <a class="nav-link" href="./destinations.html">Destinations</a>
+    <a class="nav-link" href="./Why us.html">Why Us</a>
+    <a class="nav-link btn-ghost" href="./booking.html">Booking</a>
+    
+  </nav>
+  <a class="btn" href="./booking.html">Plan a trip</a>
+</header>
+
+
+  <section class="hero">
+    <img class="hero-img" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000&auto=format&fit=crop" alt="Travel">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="title">Find your next unforgettable escape</h1>
+      <p class="subtitle">Curated tours, flexible plans, and human support—crafted by travelers, for travelers.</p>
+    </div>
+  </section>
+
+  <section id="destinations" class="section">
+    <div class="container">
+      <h2 class="section-title">Top Picks</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <img src="https://plus.unsplash.com/premium_photo-1669317566483-d3327adeda10?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QmFsaSUyQyUyMEluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D" alt="Bali">
+          <div class="card-body">
+            <h3 class="card-title">Bali, Indonesia</h3>
+            <p class="card-text">Temple sunsets, rice paddies, and ocean coves in one island escape.</p>
+            <button class="btn" onclick="bookNow('Bali, Indonesia')">Book now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://plus.unsplash.com/premium_photo-1661919210043-fd847a58522d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UGFyaXMlMkMlMjBGcmFuY2V8ZW58MHx8MHx8fDA%3D" alt="Paris">
+          <div class="card-body">
+            <h3 class="card-title">Paris, France</h3>
+            <p class="card-text">Cafés, couture, and the City of Light—wander along the Seine.</p>
+            <button class="btn" onclick="bookNow('Paris, France')">Book now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1580502304784-8985b7eb7260?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2FudG9yaW5pfGVufDB8fDB8fHww" alt="Santorini">
+          <div class="card-body">
+            <h3 class="card-title">Santorini, Greece</h3>
+            <p class="card-text">Whitewashed villages and legendary sunsets over the Aegean.</p>
+            <button class="btn" onclick="bookNow('Santorini, Greece')">Book now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="whyus" class="section section-contrast">
+    <div class="container">
+      <h2 class="section-title">Why travel with TravelMate?</h2>
+      <div class="grid cols-3">
+        <div class="card padded">
+          <h3 class="card-title">Expertly Curated</h3>
+          <p class="card-text">We vet every hotel, guide, and experience to keep the magic.</p>
+        </div>
+        <div class="card padded">
+          <h3 class="card-title">Flexible & Human</h3>
+          <p class="card-text">Real people to tweak your trip—before and during travel.</p>
+        </div>
+        <div class="card padded">
+          <h3 class="card-title">Transparent Pricing</h3>
+          <p class="card-text">No hidden fees. Clear inclusions. Great value across budgets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="booking" class="section">
+    <div class="container">
+      <h2 class="section-title">Plan your trip</h2>
+      <form id="inquiryForm" class="form">
+        <label for="name">Full name</label>
+        <input id="name" type="text" class="input">
+
+        <label for="email">Email</label>
+        <input id="email" type="email" class="input">
+
+        <label for="dest">Destination</label>
+        <input id="dest" type="text" class="input">
+
+        <div class="row cols-2">
+          <div>
+            <label for="start">Start date</label>
+            <input id="start" type="date" class="input">
+          </div>
+          <div>
+            <label for="end">End date</label>
+            <input id="end" type="date" class="input">
+          </div>
+        </div>
+
+        <a class="btn submit"
+   href="https://docs.google.com/forms/d/e/1FAIpQLSfcwkbqiRBwfnUXSbffnTynq83405ZsI0pufMG2jj6IahAtkQ/viewform?usp=dialog"
+   target="_blank">
+   Submit Inquiry
+</a>
+
+
+        <p id="formMsg" class="hint">Thanks! Your inquiry has been received. We will reach out soon.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">© <span id="year"></span> TravelMate. All rights reserved.</footer>
+
+  
+  <script src="script.js"></script>
+</body>
+</html>
+
+</body>
+</html>
